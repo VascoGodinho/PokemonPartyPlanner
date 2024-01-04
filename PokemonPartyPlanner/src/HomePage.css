@@ -1,0 +1,40 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+.App {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.pokemon-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  width: 300px;
+  background-color: black;
+  color: white;
+}
+
+.pokemon-image img {
+  width: 100%;
+  height: auto;
+}
+
+.pokemon-details {
+  padding: 10px;
+  text-align: center; /* Center all text within the Pokemon container */
+}
+
+.pokemon-details strong {
+  color: red;
+}
+
+@media (max-width: 600px) {
+  .pokemon-container {
+    width: 100%;
+  }
+}
