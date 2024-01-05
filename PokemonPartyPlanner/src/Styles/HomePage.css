@@ -11,6 +11,8 @@ body {
 }
 
 .pokemon-container {
+  margin-top: 150px;
+  margin-bottom: -150px;
   display: flex;
   flex-direction: column;
   border: 1px solid #ccc;
