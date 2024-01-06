@@ -4,6 +4,7 @@ import AboutUs from "./Components/AboutUs.jsx";
 import NotFound from "./Components/NotFoundPage.jsx";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar.jsx";
+import PokemonDetailsPage from "./Components/PokemonDetailsPage.jsx";
 import "./Styles/Navbar.css";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/pokemon/:id" element={<PokemonDetailsPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

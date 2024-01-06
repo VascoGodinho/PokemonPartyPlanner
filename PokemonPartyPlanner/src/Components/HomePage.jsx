@@ -3,6 +3,7 @@ import axios from "axios";
 import "../Styles/HomePage.css";
 import Navbar from "./Navbar";
 import "../Styles/Navbar.css";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   const [pokedexData, setPokedexData] = useState([]);
@@ -29,32 +30,22 @@ function HomePage() {
       </div>
       <div className="App">
         {pokedexData.map((pokemon) => (
-          <div key={pokemon.id} className="pokemon-container">
-            <div className="pokemon-image">
-              <img src={pokemon.sprite} alt={pokemon.name} />
+          <Link key={pokemon.id} to={`/pokemon/${pokemon.id}`}>
+            <div className="pokemon-container">
+              <div className="pokemon-image">
+                <img src={pokemon.sprite} alt={pokemon.name} />
+              </div>
+              <div className="pokemon-details">
+                <div>
+                  <strong>NAME:</strong> {pokemon.name.toUpperCase()}
+                </div>
+                <div>
+                  <strong>TYPE:</strong>{" "}
+                  {pokemon.type.map((type) => type.toUpperCase()).join(", ")}
+                </div>
+              </div>
             </div>
-            <div className="pokemon-details">
-              <div>
-                <strong>Name:</strong> {pokemon.name.toUpperCase()}
-              </div>
-              <div>
-                <strong>Type:</strong> {pokemon.type.join(", ")}
-              </div>
-              <div>
-                <strong>Moves:</strong> {pokemon.moves.join(", ")}
-              </div>
-              <div>
-                <strong>Stats:</strong>
-              </div>
-              <ul>
-                {Object.entries(pokemon.stats).map(([stat, value]) => (
-                  <li key={stat}>
-                    <strong>{stat}:</strong> {value}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

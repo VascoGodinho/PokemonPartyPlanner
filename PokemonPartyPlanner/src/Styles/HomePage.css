@@ -28,7 +28,17 @@ body {
 
 .pokemon-details {
   padding: 10px;
-  text-align: center; /* Center all text within the Pokemon container */
+  text-align: center; 
+}
+
+.pokemon-name {
+  margin-bottom: 50px; 
+  
+}
+
+.pokemon-type {
+  margin-top: 15px;
+ 
 }
 
 .pokemon-details strong {
