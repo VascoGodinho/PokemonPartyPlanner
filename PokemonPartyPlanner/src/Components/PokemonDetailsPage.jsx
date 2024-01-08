@@ -14,11 +14,11 @@ function PokemonDetailsPage() {
       try {
         // Fetching data from the specified URL
         const response = await axios.get(
-          "https://raw.githubusercontent.com/VascoGodinho/pokemonJson/main/pokedex.json"
+          "https://pokedexbackdendapi.adaptable.app/pokemons"
         );
 
         // Assuming the data is an array of Pokemon objects
-        const pokemonData = response.data.pokemons.find(
+        const pokemonData = response.data.find(
           (pokemon) => pokemon.id === parseInt(id)
         );
 
