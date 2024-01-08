@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -54,11 +52,15 @@ function PokemonDetailsPage() {
       </div>
       <div>
         <strong>Type:</strong>{" "}
-        {pokemonDetails.type.map((type) => type).join(", ")}
+        {Array.isArray(pokemonDetails.type)
+          ? pokemonDetails.type.map((type) => type).join(", ")
+          : pokemonDetails.type}
       </div>
       <div>
         <strong>Moves:</strong>{" "}
-        {pokemonDetails.moves.map((move) => move).join(", ")}
+        {Array.isArray(pokemonDetails.moves)
+          ? pokemonDetails.moves.map((move) => move).join(", ")
+          : pokemonDetails.moves}
       </div>
       <div>
         <strong>Stats:</strong>
@@ -75,5 +77,3 @@ function PokemonDetailsPage() {
 }
 
 export default PokemonDetailsPage;
- 
-

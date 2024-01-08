@@ -8,6 +8,9 @@ function Navbar() {
       <Link to="/" className="logoContainer">
         <img src={logo} alt="Pokemon Logo"></img>
       </Link>
+      <Link to="/createPokemon" className="createPokemon">
+        <p>Create a Pokemon</p>
+      </Link>
 
       <Link to="/About" className="aboutUs">
         <p>About Us</p>

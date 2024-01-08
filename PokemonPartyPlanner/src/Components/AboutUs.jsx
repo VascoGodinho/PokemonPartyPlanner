@@ -10,6 +10,18 @@ function AboutUs() {
       <div className="vasco">
         <h3>Vasco Godinho</h3>
         <img src="./src/assets/Vasco.jpg"></img>
+        <p>
+          Hi! I'm Vasco Godinho and I'm 28 years old and I was borned and raised
+          in Portugal. During my academics in Sound Design, I've always been
+          interested in programming, working on some visual and sound projects.
+          My main hobbies are listening to music and playing video games.
+        </p>
+
+        <div>
+          <Link to="https://github.com/VascoGodinho" className="gitHub">
+            <img src={gitHubLogo} alt="Github Page"></img>
+          </Link>
+        </div>
       </div>
       <div className="victor">
         <h3>Victor Silva</h3>
