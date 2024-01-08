@@ -4,7 +4,6 @@ import "../Styles/HomePage.css";
 import Navbar from "./Navbar";
 import "../Styles/Navbar.css";
 import { Link } from "react-router-dom";
-import CreatePokemonForm from "./CreatePokemonForm.jsx";
 
 function HomePage() {
   const [pokedexData, setPokedexData] = useState([]);
