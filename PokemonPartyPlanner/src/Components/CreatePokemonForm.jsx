@@ -62,7 +62,6 @@ const CreatePokemonForm = () => {
         throw new Error("Failed to add Pokemon");
       }
 
-      // Reset the form after successful submission
       setPokemonData({
         name: "",
         type: [],
