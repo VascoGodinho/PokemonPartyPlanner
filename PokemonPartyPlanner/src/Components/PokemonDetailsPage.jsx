@@ -1,21 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import "../Styles/PokemonDetailsPage.css";
 
-function PokemonDetailsPage() {
+function PokemonDetailsPage({ addToParty }) {
   const { id } = useParams();
   const [pokemonDetails, setPokemonDetails] = useState(null);
 
   useEffect(() => {
     const fetchPokemonDetails = async () => {
       try {
-        // Fetching data from the specified URL
         const response = await axios.get(
           "https://pokedexbackdendapi.adaptable.app/pokemons"
         );
 
-        // Assuming the data is an array of Pokemon objects
         const pokemonData = response.data.find(
           (pokemon) => pokemon.id === parseInt(id)
         );
@@ -72,6 +69,7 @@ function PokemonDetailsPage() {
           ))}
         </ul>
       </div>
+      <button onClick={() => addToParty(pokemonDetails)}>Add to Party</button>
     </div>
   );
 }

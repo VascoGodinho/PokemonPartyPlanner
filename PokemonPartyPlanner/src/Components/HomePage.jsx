@@ -16,7 +16,6 @@ function HomePage() {
         );
 
         setPokedexData(response.data);
-        console.log(pokedexData);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
