@@ -10,7 +10,7 @@ function PokemonDetailsPage({ addToParty }) {
     const fetchPokemonDetails = async () => {
       try {
         const response = await axios.get(
-          "https://pokedexbackdendapi.adaptable.app/pokemons"
+          `${import.meta.env.VITE_API_URL}/pokemons`
         );
 
         const pokemonData = response.data.find(

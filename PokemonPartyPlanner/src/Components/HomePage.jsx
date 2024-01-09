@@ -12,7 +12,7 @@ function HomePage() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://pokedexbackdendapi.adaptable.app/pokemons"
+          `${import.meta.env.VITE_API_URL}/pokemons`
         );
 
         setPokedexData(response.data);

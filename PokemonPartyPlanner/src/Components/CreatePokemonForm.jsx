@@ -47,16 +47,13 @@ const CreatePokemonForm = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        "https://pokedexbackdendapi.adaptable.app/pokemons",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(pokemonData),
-        }
-      );
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/pokemons`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(pokemonData),
+      });
 
       if (!response.ok) {
         throw new Error("Failed to add Pokemon");
