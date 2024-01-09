@@ -38,7 +38,7 @@ function PokemonDetailsPage({ addToParty }) {
         await axios.delete(
           `https://pokedexbackdendapi.adaptable.app/pokemons/${id}`
         );
-        history.push("/");
+        history.push("/"); // Redirect to the home page after deletion
       } catch (error) {
         console.error("Error deleting Pokemon:", error);
       }
