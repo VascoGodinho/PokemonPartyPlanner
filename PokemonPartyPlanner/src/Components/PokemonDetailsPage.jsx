@@ -1,6 +1,5 @@
-// PokemonDetailsPage.jsx
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"; // Import useParams
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 function PokemonDetailsPage({ addToParty }) {
@@ -29,19 +28,21 @@ function PokemonDetailsPage({ addToParty }) {
       return;
     }
 
-    const confirmDeletion = window.confirm(
-      `Are you sure you want to delete ${pokemonDetails.name}?`
+    const userInput = prompt(
+      `To confirm deletion, please enter the name of the Pokemon: ${pokemonDetails.name}`
     );
 
-    if (confirmDeletion) {
+    if (userInput === pokemonDetails.name) {
       try {
         await axios.delete(
           `https://pokedexbackdendapi.adaptable.app/pokemons/${id}`
         );
-        window.location.href = "/"; // Redirect to the home page after deletion
+        window.location.href = "/";
       } catch (error) {
         console.error("Error deleting Pokemon:", error);
       }
+    } else {
+      alert("Deletion canceled. Names do not match.");
     }
   };
 
