@@ -2,6 +2,8 @@ import React from "react";
 import "../Styles/AboutUs.css";
 import { Link } from "react-router-dom";
 import gitHubLogo from "../assets/GitHub-Logo.png";
+import vasco from "../assets/vasco.jpg";
+import victor from "../assets/victor.jpg";
 
 function AboutUs() {
   return (
@@ -9,7 +11,7 @@ function AboutUs() {
       <h1>About Us</h1>
       <div className="vasco">
         <h3>Vasco Godinho</h3>
-        <img src="./src/assets/Vasco.jpg"></img>
+        <img src={vasco} alt="Vasco's Picture"></img>
         <p>
           Hi! I'm Vasco Godinho and I'm 28 years old and I was borned and raised
           in Portugal. During my academics in Sound Design, I've always been
@@ -25,7 +27,9 @@ function AboutUs() {
       </div>
       <div className="victor">
         <h3>Victor Silva</h3>
-        <img src="./src/assets/Victor.jpg"></img>
+        <img src={victor} alt="Victor's Image">
+          {" "}
+        </img>
         <p>My name is Victor Silva, I am 24 years old.</p>
         <p>
           I was born in Brazil but came to Portugal when I was five years old,
