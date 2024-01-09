@@ -27,9 +27,7 @@ function AboutUs() {
       </div>
       <div className="victor">
         <h3>Victor Silva</h3>
-        <img src={victor} alt="Victor's Image">
-          {" "}
-        </img>
+        <img src={victor} alt="Victor's Image"></img>
         <p>My name is Victor Silva, I am 24 years old.</p>
         <p>
           I was born in Brazil but came to Portugal when I was five years old,
