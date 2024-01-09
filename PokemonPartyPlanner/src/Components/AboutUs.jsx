@@ -2,8 +2,8 @@ import React from "react";
 import "../Styles/AboutUs.css";
 import { Link } from "react-router-dom";
 import gitHubLogo from "../assets/GitHub-Logo.png";
-import vasco from "../assets/vasco.jpg";
-import victor from "../assets/victor.jpg";
+import vasco from "../assets/Vasco.jpg";
+import victor from "../assets/Victor.jpg";
 
 function AboutUs() {
   return (
