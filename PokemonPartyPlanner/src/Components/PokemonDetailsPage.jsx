@@ -1,10 +1,10 @@
+// PokemonDetailsPage.jsx
 import React, { useEffect, useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom"; // Import useParams
 import axios from "axios";
 
 function PokemonDetailsPage({ addToParty }) {
   const { id } = useParams();
-  const history = useHistory();
   const [pokemonDetails, setPokemonDetails] = useState(null);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ function PokemonDetailsPage({ addToParty }) {
         await axios.delete(
           `https://pokedexbackdendapi.adaptable.app/pokemons/${id}`
         );
-        history.push("/"); // Redirect to the home page after deletion
+        window.location.href = "/"; // Redirect to the home page after deletion
       } catch (error) {
         console.error("Error deleting Pokemon:", error);
       }
