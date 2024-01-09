@@ -1,27 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
 
 function PokemonDetailsPage({ addToParty }) {
   const { id } = useParams();
+  const history = useHistory();
   const [pokemonDetails, setPokemonDetails] = useState(null);
 
   useEffect(() => {
     const fetchPokemonDetails = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/pokemons`
+          `https://pokedexbackdendapi.adaptable.app/pokemons/${id}`
         );
 
-        const pokemonData = response.data.find(
-          (pokemon) => pokemon.id === parseInt(id)
-        );
-
-        if (pokemonData) {
-          setPokemonDetails(pokemonData);
-        } else {
-          console.error("Pokemon not found");
-        }
+        setPokemonDetails(response.data);
       } catch (error) {
         console.error("Error fetching Pokemon details:", error);
       }
@@ -30,18 +23,38 @@ function PokemonDetailsPage({ addToParty }) {
     fetchPokemonDetails();
   }, [id]);
 
+  const handleDelete = async () => {
+    if (!pokemonDetails) {
+      console.error("Cannot delete. Pokemon details not available.");
+      return;
+    }
+
+    const confirmDeletion = window.confirm(
+      `Are you sure you want to delete ${pokemonDetails.name}?`
+    );
+
+    if (confirmDeletion) {
+      try {
+        await axios.delete(
+          `https://pokedexbackdendapi.adaptable.app/pokemons/${id}`
+        );
+        history.push("/");
+      } catch (error) {
+        console.error("Error deleting Pokemon:", error);
+      }
+    }
+  };
+
   if (!pokemonDetails) {
     return <div>Loading...</div>;
   }
-
-  const spriteUrl = pokemonDetails.sprite;
 
   return (
     <div>
       <h1>{pokemonDetails.name}</h1>
       <div className="pokemon-DetailsPage-img">
         <img
-          src={spriteUrl}
+          src={pokemonDetails.sprite}
           alt={pokemonDetails.name}
           style={{ maxWidth: "100%", height: "auto" }}
           className="pokemon-image"
@@ -50,13 +63,13 @@ function PokemonDetailsPage({ addToParty }) {
       <div>
         <strong>Type:</strong>{" "}
         {Array.isArray(pokemonDetails.type)
-          ? pokemonDetails.type.map((type) => type).join(", ")
+          ? pokemonDetails.type.join(", ")
           : pokemonDetails.type}
       </div>
       <div>
         <strong>Moves:</strong>{" "}
         {Array.isArray(pokemonDetails.moves)
-          ? pokemonDetails.moves.map((move) => move).join(", ")
+          ? pokemonDetails.moves.join(", ")
           : pokemonDetails.moves}
       </div>
       <div>
@@ -70,6 +83,7 @@ function PokemonDetailsPage({ addToParty }) {
         </ul>
       </div>
       <button onClick={() => addToParty(pokemonDetails)}>Add to Party</button>
+      <button onClick={handleDelete}>Delete Pokemon</button>
     </div>
   );
 }
