@@ -17,19 +17,15 @@ function App() {
     if (party.length < 6) {
       setParty([...party, pokemon]);
     } else {
-      // Party is full, prompt user to replace a Pokemon
       const pokemonNames = party.map((p) => p.name);
 
-      // Example using window.prompt, you might want to use a more sophisticated UI
       const replacePokemonName = window.prompt(
         `Choose a Pokemon to replace:\n${pokemonNames.join(", ")}`
       );
 
-      // Find the Pokemon to replace
       const pokemonToReplace = party.find((p) => p.name === replacePokemonName);
 
       if (pokemonToReplace) {
-        // Replace the chosen Pokemon
         const updatedParty = party.map((p) =>
           p.name === replacePokemonName ? pokemon : p
         );
