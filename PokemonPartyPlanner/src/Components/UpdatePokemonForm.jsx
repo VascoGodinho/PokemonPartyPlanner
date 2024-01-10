@@ -62,7 +62,7 @@ function UpdatePokemonForm({ pokemonId }) {
         formData
       );
 
-      window.location.href = "/";
+      window.location.href = `/pokemon/${pokemonId}`;
     } catch (error) {
       console.error("Error updating Pokemon:", error);
     }

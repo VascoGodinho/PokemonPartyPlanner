@@ -49,7 +49,7 @@ function PokemonDetailsPage({ addToParty }) {
   };
 
   if (!pokemonDetails) {
-    return <div>Pokemon not found</div>;
+    return <div>Loading...</div>;
   }
 
   return (
