@@ -73,7 +73,10 @@ function PokemonDetailsPage({ addToParty }) {
         />
       </div>
       <div>
-        <strong>Type:</strong> {pokemonDetails.type.join(", ")}
+        <strong>Type:</strong>{" "}
+        {Array.isArray(pokemonDetails.type)
+          ? pokemonDetails.type.join(", ")
+          : pokemonDetails.type}
       </div>
       <div>
         <strong>Moves:</strong> {pokemonDetails.moves.join(", ")}
