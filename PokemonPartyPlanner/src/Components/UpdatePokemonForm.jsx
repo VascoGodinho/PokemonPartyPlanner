@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function UpdatePokemonForm({ id }) {
+function UpdatePokemonForm({ pokemonId }) {
   const [formData, setFormData] = useState({
     name: "",
     type: "",
@@ -20,7 +20,7 @@ function UpdatePokemonForm({ id }) {
     const fetchPokemonDetails = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/pokemons/${id}`
+          `${import.meta.env.VITE_API_URL}/pokemons/${pokemonId}`
         );
 
         setFormData(response.data);
@@ -30,7 +30,7 @@ function UpdatePokemonForm({ id }) {
     };
 
     fetchPokemonDetails();
-  }, [id]);
+  }, [pokemonId]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -58,7 +58,7 @@ function UpdatePokemonForm({ id }) {
 
     try {
       await axios.put(
-        `${import.meta.env.VITE_API_URL}/pokemons/${id}`,
+        `${import.meta.env.VITE_API_URL}/pokemons/${pokemonId}`,
         formData
       );
 
