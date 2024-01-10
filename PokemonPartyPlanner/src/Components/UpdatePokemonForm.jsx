@@ -58,7 +58,7 @@ function UpdatePokemonForm({ pokemonId }) {
 
     try {
       await axios.put(
-        `${import.meta.env.VITE_API_URL}/pokemons/${id}`,
+        `${import.meta.env.VITE_API_URL}/pokemons/${pokemonId}`,
         formData
       );
 
