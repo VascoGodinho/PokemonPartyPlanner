@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import UpdatePokemonForm from "./UpdatePokemonForm";
+import { Link } from "react-router-dom";
+
 function PokemonDetailsPage({ addToParty }) {
   const { id } = useParams();
   const [pokemonDetails, setPokemonDetails] = useState(null);
-  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     const fetchPokemonDetails = async () => {
@@ -43,18 +43,6 @@ function PokemonDetailsPage({ addToParty }) {
     } else {
       alert("Deletion canceled. Names do not match.");
     }
-  };
-
-  const handleEdit = () => {
-    setIsEditing(true);
-  };
-
-  const handleCloseEdit = () => {
-    setIsEditing(false);
-  };
-
-  const handleUpdate = () => {
-    setIsEditing(false);
   };
 
   if (!pokemonDetails) {
