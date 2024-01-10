@@ -45,7 +45,7 @@ function PokemonDetailsPage({ addToParty }) {
   };
 
   const handleEdit = () => {
-    <Link to={`/updatePokemon/${id}`}>Edit Pokemon</Link>;
+    window.location.href = `/updatePokemon/${id}`;
   };
 
   if (!pokemonDetails) {
