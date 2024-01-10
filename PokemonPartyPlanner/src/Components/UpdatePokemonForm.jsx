@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
-function UpdatePokemonForm({ pokemonId }) {
+function UpdatePokemonForm() {
+  const { id } = useParams();
   const [formData, setFormData] = useState({
     name: "",
     type: "",
@@ -20,10 +22,9 @@ function UpdatePokemonForm({ pokemonId }) {
     const fetchPokemonDetails = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/pokemons/${pokemonId}`
+          `https://pokedexbackdendapi.adaptable.app/pokemons/${id}`
         );
 
-        console.log("Fetched Pokemon details:", response.data);
         setFormData(response.data);
       } catch (error) {
         console.error("Error fetching Pokemon details:", error);
@@ -31,7 +32,7 @@ function UpdatePokemonForm({ pokemonId }) {
     };
 
     fetchPokemonDetails();
-  }, [pokemonId]);
+  }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -58,14 +59,12 @@ function UpdatePokemonForm({ pokemonId }) {
     e.preventDefault();
 
     try {
-      console.log("Submitting update:", formData);
       await axios.put(
-        `${import.meta.env.VITE_API_URL}/pokemons/${pokemonId}`,
+        `https://pokedexbackdendapi.adaptable.app/pokemons/${id}`,
         formData
       );
 
-      console.log("Update successful!");
-      window.location.href = `/pokemon/${pokemonId}`;
+      window.location.href = `/pokemon/${id}`;
     } catch (error) {
       console.error("Error updating Pokemon:", error);
     }
