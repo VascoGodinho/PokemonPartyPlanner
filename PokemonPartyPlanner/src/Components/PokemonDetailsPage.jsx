@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
 import axios from "axios";
+import { useParams, Link } from "react-router-dom";
 
 function PokemonDetailsPage({ addToParty }) {
   const { id } = useParams();
@@ -45,7 +45,7 @@ function PokemonDetailsPage({ addToParty }) {
   };
 
   const handleEdit = () => {
-    console.log("Edit button clicked");
+    <Link to={`/updatePokemon/${id}`}>Edit Pokemon</Link>;
   };
 
   if (!pokemonDetails) {
@@ -83,10 +83,8 @@ function PokemonDetailsPage({ addToParty }) {
         </ul>
       </div>
       <button onClick={() => addToParty(pokemonDetails)}>Add to Party</button>
+      <button onClick={handleEdit}>Edit Pokemon</button>
       <button onClick={handleDelete}>Delete Pokemon</button>
-      <Link to={`/updatePokemon/${id}`}>
-        <button>Edit Pokemon</button>
-      </Link>
     </div>
   );
 }
