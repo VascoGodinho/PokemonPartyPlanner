@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-
+import UpdatePokemonForm from "./UpdatePokemonForm";
 function PokemonDetailsPage({ addToParty }) {
   const { id } = useParams();
   const [pokemonDetails, setPokemonDetails] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     const fetchPokemonDetails = async () => {
@@ -46,8 +47,20 @@ function PokemonDetailsPage({ addToParty }) {
     }
   };
 
+  const handleEdit = () => {
+    setIsEditing(true);
+  };
+
+  const handleCloseEdit = () => {
+    setIsEditing(false);
+  };
+
+  const handleUpdate = () => {
+    setIsEditing(false);
+  };
+
   if (!pokemonDetails) {
-    return <div>Loading...</div>;
+    return <div>Pokemon not found</div>;
   }
 
   return (
@@ -62,16 +75,10 @@ function PokemonDetailsPage({ addToParty }) {
         />
       </div>
       <div>
-        <strong>Type:</strong>{" "}
-        {Array.isArray(pokemonDetails.type)
-          ? pokemonDetails.type.join(", ")
-          : pokemonDetails.type}
+        <strong>Type:</strong> {pokemonDetails.type.join(", ")}
       </div>
       <div>
-        <strong>Moves:</strong>{" "}
-        {Array.isArray(pokemonDetails.moves)
-          ? pokemonDetails.moves.join(", ")
-          : pokemonDetails.moves}
+        <strong>Moves:</strong> {pokemonDetails.moves.join(", ")}
       </div>
       <div>
         <strong>Stats:</strong>
@@ -84,7 +91,16 @@ function PokemonDetailsPage({ addToParty }) {
         </ul>
       </div>
       <button onClick={() => addToParty(pokemonDetails)}>Add to Party</button>
+      <button onClick={handleEdit}>Edit Pokemon</button>
       <button onClick={handleDelete}>Delete Pokemon</button>
+
+      {isEditing && (
+        <UpdatePokemonForm
+          pokemonId={id}
+          onClose={handleCloseEdit}
+          onUpdate={handleUpdate}
+        />
+      )}
     </div>
   );
 }
