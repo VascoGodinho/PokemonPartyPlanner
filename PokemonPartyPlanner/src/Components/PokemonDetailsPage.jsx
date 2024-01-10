@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 function PokemonDetailsPage({ addToParty }) {
   const { id } = useParams();
@@ -45,6 +44,10 @@ function PokemonDetailsPage({ addToParty }) {
     }
   };
 
+  const handleEdit = () => {
+    console.log("Edit button clicked");
+  };
+
   if (!pokemonDetails) {
     return <div>Pokemon not found</div>;
   }
@@ -80,9 +83,7 @@ function PokemonDetailsPage({ addToParty }) {
         </ul>
       </div>
       <button onClick={() => addToParty(pokemonDetails)}>Add to Party</button>
-      <button onClick={handleEdit}>Edit Pokemon</button>
       <button onClick={handleDelete}>Delete Pokemon</button>
-
       <Link to={`/updatePokemon/${id}`}>
         <button>Edit Pokemon</button>
       </Link>
