@@ -54,10 +54,10 @@ function PokemonDetailsPage({ addToParty }) {
 
   return (
     <div>
-      <h1>
-        {pokemonDetails.name.charAt(0).toUpperCase() +
-          pokemonDetails.name.slice(1)}
-      </h1>
+      <div className="Navbar fixed-navbar">
+        <Navbar />
+      </div>
+      <h1>{pokemonDetails.name}</h1>
       <div className="pokemon-DetailsPage-img">
         <img
           src={pokemonDetails.sprite}

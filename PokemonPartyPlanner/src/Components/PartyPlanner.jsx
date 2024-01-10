@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 function PartyPlanner({ party, removeFromParty }) {
   return (
     <div>
+      <div className="Navbar fixed-navbar">
+        <Navbar />
+      </div>
       <h2>Party</h2>
       <ul>
         {party.map((pokemon) => (
