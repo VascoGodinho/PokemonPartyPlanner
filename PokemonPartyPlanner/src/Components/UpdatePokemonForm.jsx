@@ -23,6 +23,7 @@ function UpdatePokemonForm({ pokemonId }) {
           `${import.meta.env.VITE_API_URL}/pokemons/${pokemonId}`
         );
 
+        console.log("Fetched Pokemon details:", response.data);
         setFormData(response.data);
       } catch (error) {
         console.error("Error fetching Pokemon details:", error);
@@ -57,11 +58,13 @@ function UpdatePokemonForm({ pokemonId }) {
     e.preventDefault();
 
     try {
+      console.log("Submitting update:", formData);
       await axios.put(
         `${import.meta.env.VITE_API_URL}/pokemons/${pokemonId}`,
         formData
       );
 
+      console.log("Update successful!");
       window.location.href = `/pokemon/${pokemonId}`;
     } catch (error) {
       console.error("Error updating Pokemon:", error);
