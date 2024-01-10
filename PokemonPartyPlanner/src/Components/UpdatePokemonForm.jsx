@@ -20,7 +20,7 @@ function UpdatePokemonForm({ pokemonId }) {
     const fetchPokemonDetails = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/pokemons/${id}`
+          `${import.meta.env.VITE_API_URL}/pokemons/${pokemonId}`
         );
 
         setFormData(response.data);
