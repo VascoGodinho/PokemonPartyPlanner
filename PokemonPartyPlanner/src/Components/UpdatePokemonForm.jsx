@@ -20,7 +20,7 @@ const UpdatePokemonForm = ({ pokemonId, onClose, onUpdate }) => {
     const fetchPokemonDetails = async () => {
       try {
         const response = await axios.get(
-          `https://pokedexbackdendapi.adaptable.app/pokemons/${pokemonId}`
+          `${import.meta.env.VITE_API_URL}/pokemons/${pokemonId}`
         );
 
         setUpdatedDetails(response.data);
@@ -66,7 +66,7 @@ const UpdatePokemonForm = ({ pokemonId, onClose, onUpdate }) => {
   const handleUpdate = async () => {
     try {
       await axios.put(
-        `https://pokedexbackdendapi.adaptable.app/pokemons/${pokemonId}`,
+        `${import.meta.env.VITE_API_URL}/pokemons/${pokemonId}`,
         updatedDetails
       );
       onUpdate();

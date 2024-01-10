@@ -11,7 +11,7 @@ function PokemonDetailsPage({ addToParty }) {
     const fetchPokemonDetails = async () => {
       try {
         const response = await axios.get(
-          `https://pokedexbackdendapi.adaptable.app/pokemons/${id}`
+          `${import.meta.env.VITE_API_URL}/pokemons/${id}`
         );
 
         setPokemonDetails(response.data);
@@ -35,9 +35,7 @@ function PokemonDetailsPage({ addToParty }) {
 
     if (userInput === pokemonDetails.name) {
       try {
-        await axios.delete(
-          `https://pokedexbackdendapi.adaptable.app/pokemons/${id}`
-        );
+        await axios.delete(`${import.meta.env.VITE_API_URL}/pokemons/${id}`);
         window.location.href = "/";
       } catch (error) {
         console.error("Error deleting Pokemon:", error);
