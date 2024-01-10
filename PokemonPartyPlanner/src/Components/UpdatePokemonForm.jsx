@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const UpdatePokemonForm = ({ pokemonId, onClose, onUpdate }) => {
-  const [updatedDetails, setUpdatedDetails] = useState({
+function UpdatePokemonForm({ pokemonId }) {
+  const [formData, setFormData] = useState({
     name: "",
-    type: [],
-    moves: [],
+    type: "",
+    moves: "",
     stats: {
       hp: 0,
       attack: 0,
       defense: 0,
-      "special-attack": 0,
-      "special-defense": 0,
+      specialAttack: 0,
+      specialDefense: 0,
       speed: 0,
     },
   });
@@ -20,10 +20,10 @@ const UpdatePokemonForm = ({ pokemonId, onClose, onUpdate }) => {
     const fetchPokemonDetails = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/pokemons/${pokemonId}`
+          `${import.meta.env.VITE_API_URL}/pokemons/${id}`
         );
 
-        setUpdatedDetails(response.data);
+        setFormData(response.data);
       } catch (error) {
         console.error("Error fetching Pokemon details:", error);
       }
@@ -35,97 +35,130 @@ const UpdatePokemonForm = ({ pokemonId, onClose, onUpdate }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setUpdatedDetails((prevDetails) => ({
-      ...prevDetails,
+    setFormData((prevData) => ({
+      ...prevData,
       [name]: value,
     }));
   };
 
-  const handleTypeChange = (e) => {
-    const selectedTypes = Array.from(e.target.options)
-      .filter((option) => option.selected)
-      .map((option) => option.value);
+  const handleStatsChange = (e) => {
+    const { name, value } = e.target;
 
-    setUpdatedDetails((prevDetails) => ({
-      ...prevDetails,
-      type: selectedTypes,
+    setFormData((prevData) => ({
+      ...prevData,
+      stats: {
+        ...prevData.stats,
+        [name]: parseInt(value, 10),
+      },
     }));
   };
 
-  const handleMoveChange = (e) => {
-    const selectedMoves = Array.from(e.target.options)
-      .filter((option) => option.selected)
-      .map((option) => option.value);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    setUpdatedDetails((prevDetails) => ({
-      ...prevDetails,
-      moves: selectedMoves,
-    }));
-  };
-
-  const handleUpdate = async () => {
     try {
       await axios.put(
-        `${import.meta.env.VITE_API_URL}/pokemons/${pokemonId}`,
-        updatedDetails
+        `${import.meta.env.VITE_API_URL}/pokemons/${id}`,
+        formData
       );
-      onUpdate();
-      onClose();
+
+      window.location.href = "/";
     } catch (error) {
-      console.error("Error updating Pokemon details:", error);
+      console.error("Error updating Pokemon:", error);
     }
   };
 
   return (
-    <div>
-      <h2>Update Pokemon</h2>
+    <form onSubmit={handleSubmit}>
       <label>
         Name:
         <input
           type="text"
           name="name"
-          value={updatedDetails.name}
+          value={formData.name}
           onChange={handleChange}
         />
       </label>
       <label>
         Type:
-        <select
-          multiple
+        <input
+          type="text"
           name="type"
-          value={updatedDetails.type}
-          onChange={handleTypeChange}
-        ></select>
+          value={formData.type}
+          onChange={handleChange}
+        />
       </label>
       <label>
         Moves:
-        <select
-          multiple
+        <input
+          type="text"
           name="moves"
-          value={updatedDetails.moves}
-          onChange={handleMoveChange}
-        ></select>
+          value={formData.moves}
+          onChange={handleChange}
+        />
       </label>
       <label>
         Stats:
-        <ul>
-          {Object.entries(updatedDetails.stats).map(([stat, value]) => (
-            <li key={stat}>
-              <strong>{stat}:</strong>
-              <input
-                type="number"
-                name={`stats.${stat}`}
-                value={value}
-                onChange={handleChange}
-              />
-            </li>
-          ))}
-        </ul>
+        <div>
+          <label>
+            HP:
+            <input
+              type="number"
+              name="hp"
+              value={formData.stats.hp}
+              onChange={handleStatsChange}
+            />
+          </label>
+          <label>
+            Attack:
+            <input
+              type="number"
+              name="attack"
+              value={formData.stats.attack}
+              onChange={handleStatsChange}
+            />
+          </label>
+          <label>
+            Defense:
+            <input
+              type="number"
+              name="defense"
+              value={formData.stats.defense}
+              onChange={handleStatsChange}
+            />
+          </label>
+          <label>
+            Special Attack:
+            <input
+              type="number"
+              name="specialAttack"
+              value={formData.stats.specialAttack}
+              onChange={handleStatsChange}
+            />
+          </label>
+          <label>
+            Special Defense:
+            <input
+              type="number"
+              name="specialDefense"
+              value={formData.stats.specialDefense}
+              onChange={handleStatsChange}
+            />
+          </label>
+          <label>
+            Speed:
+            <input
+              type="number"
+              name="speed"
+              value={formData.stats.speed}
+              onChange={handleStatsChange}
+            />
+          </label>
+        </div>
       </label>
-      <button onClick={handleUpdate}>Update</button>
-      <button onClick={onClose}>Cancel</button>
-    </div>
+      <button type="submit">Update Pokemon</button>
+    </form>
   );
-};
+}
 
 export default UpdatePokemonForm;
