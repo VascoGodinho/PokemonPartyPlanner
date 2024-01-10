@@ -59,7 +59,7 @@ function PokemonDetailsPage({ addToParty }) {
         <img
           src={pokemonDetails.sprite}
           alt={pokemonDetails.name}
-          style={{ maxWidth: "100%", height: "auto" }}
+          style={{ maxWidth: "100%", height: "300px" }}
           className="pokemon-image"
         />
       </div>
