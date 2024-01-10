@@ -95,13 +95,9 @@ function PokemonDetailsPage({ addToParty }) {
       <button onClick={handleEdit}>Edit Pokemon</button>
       <button onClick={handleDelete}>Delete Pokemon</button>
 
-      {isEditing && (
-        <UpdatePokemonForm
-          pokemonId={id}
-          onClose={handleCloseEdit}
-          onUpdate={handleUpdate}
-        />
-      )}
+      <Link to={`/updatePokemon/${id}`}>
+        <button>Edit Pokemon</button>
+      </Link>
     </div>
   );
 }
