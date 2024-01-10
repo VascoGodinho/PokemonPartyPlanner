@@ -9,7 +9,7 @@ import PokemonDetailsPage from "./Components/PokemonDetailsPage.jsx";
 import CreatePokemonForm from "./Components/CreatePokemonForm.jsx";
 import PartyPlanner from "./Components/PartyPlanner.jsx";
 import "./Styles/Navbar.css";
-import UpdatePokemonPage from "./Components/UpdatePokemonPage.jsx";
+import UpdatePokemonForm from "./Components/UpdatePokemonForm.jsx";
 
 function App() {
   const [party, setParty] = useState([]);
@@ -58,7 +58,7 @@ function App() {
             <PartyPlanner party={party} removeFromParty={removeFromParty} />
           }
         />
-        <Route path="/updatePokemon/:id" element={<UpdatePokemonPage />} />
+        <Route path="/updatePokemon/:id" element={<UpdatePokemonForm />} />
 
         <Route
           path="/partyPlanner/:id"
