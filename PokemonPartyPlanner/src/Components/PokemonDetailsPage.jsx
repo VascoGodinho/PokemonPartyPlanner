@@ -54,9 +54,6 @@ function PokemonDetailsPage({ addToParty }) {
 
   return (
     <div>
-      <div className="Navbar fixed-navbar">
-        <Navbar />
-      </div>
       <h1>{pokemonDetails.name}</h1>
       <div className="pokemon-DetailsPage-img">
         <img

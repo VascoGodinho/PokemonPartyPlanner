@@ -8,9 +8,6 @@ import victor from "../assets/Victor.jpg";
 function AboutUs() {
   return (
     <div>
-      <div className="Navbar fixed-navbar">
-        <Navbar />
-      </div>
       <h1>About Us</h1>
       <div className="vasco">
         <h3>Vasco Godinho</h3>
