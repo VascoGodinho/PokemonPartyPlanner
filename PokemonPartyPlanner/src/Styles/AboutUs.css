@@ -1,18 +1,18 @@
 body {
   font-family: "Arial", sans-serif;
-  background-color: #f5f5f5;
+  background-color: black;
   margin: 0;
   padding: 0;
 }
 
 h1 {
   text-align: center;
-  color: #333;
+  color: white;
   margin-top: 20px;
 }
 
 h3 {
-  color: #333;
+  color: white;
 }
 
 div {
@@ -24,9 +24,8 @@ div {
 
 .vasco,
 .victor {
-  background-color: #fff;
+  background-color: black;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin: 20px;
   text-align: center;
