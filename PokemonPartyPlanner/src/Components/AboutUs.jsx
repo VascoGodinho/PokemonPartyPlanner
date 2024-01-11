@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import gitHubLogo from "../assets/GitHub-Logo.png";
 import vasco from "../assets/Vasco.jpg";
 import victor from "../assets/Victor.jpg";
+import linkedinLogo from "../assets/linkedin.jpg";
 
 function AboutUs() {
   return (
@@ -23,6 +24,12 @@ function AboutUs() {
           <Link to="https://github.com/VascoGodinho" className="gitHub">
             <img src={gitHubLogo} alt="Github Page"></img>
           </Link>
+          <Link
+            to="https://www.linkedin.com/in/vasco-godinho-2719ba168/"
+            className="Linkedin"
+          >
+            <img src={linkedinLogo} alt="Linkedin Logo"></img>
+          </Link>
         </div>
       </div>
       <div className="victor">
@@ -38,6 +45,12 @@ function AboutUs() {
         </p>
         <Link to="https://github.com/Vini1602" className="gitHub">
           <img src={gitHubLogo} alt="Github Page"></img>
+        </Link>
+        <Link
+          to="https://www.linkedin.com/in/victor-silva-17a53b196"
+          className="Linkedin"
+        >
+          <img src={linkedinLogo} alt="Linkedin Logo"></img>
         </Link>
       </div>
     </div>

@@ -1,15 +1,63 @@
-.vasco img {
-  width: 400px;
-  height: 550px;
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
 }
 
-.victor img {
-  width: 400px;
-  height: 550px;
+h1 {
+  text-align: center;
+  color: #333;
+  margin-top: 20px;
 }
 
-.gitHub img {
-  background-color: white;
-  width: 200px;
-  height: 100px;
+h3 {
+  color: #333;
+}
+
+div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.vasco,
+.victor {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  width: 300px;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #555;
+  line-height: 1.5;
+}
+
+.gitHub,
+.Linkedin {
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.gitHub img,
+.Linkedin img {
+  max-width: 30px;
+  margin-right: 10px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.gitHub img:hover,
+.Linkedin img:hover {
+  transform: scale(1.2);
 }
