@@ -51,6 +51,7 @@ p {
 
 .gitHub img,
 .Linkedin img {
+  background: white;
   max-width: 30px;
   margin-right: 10px;
   transition: transform 0.2s ease-in-out;
