@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import "../Styles/PokemonDetails.css";
+import "../Styles/PokemonDetailsPage.css";
 
 function PokemonDetailsPage({ addToParty }) {
   const { id } = useParams();
