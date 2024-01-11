@@ -1,11 +1,4 @@
-body {
-  font-family: "Arial", sans-serif;
-  background-color: black;
-  margin: 0;
-  padding: 0;
-}
-
-h1 {
+.aboutUs {
   text-align: center;
   color: white;
   margin-top: 20px;
@@ -32,7 +25,8 @@ div {
   width: 300px;
 }
 
-img {
+img .vasco,
+.victor {
   max-width: 100%;
   border-radius: 50%;
   margin-bottom: 10px;
