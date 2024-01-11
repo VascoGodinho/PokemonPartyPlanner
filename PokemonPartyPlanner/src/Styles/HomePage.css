@@ -15,10 +15,7 @@ body {
   margin-bottom: -50px;
   display: flex;
   flex-direction: column;
-  border-left: 2px solid yellow;
-  border-right: 2px solid yellow;
-  border-bottom: 2px solid #356abc;
-  border-top: 2px solid #356abc;
+  border: 8px solid yellow;
   width: 300px;
   background-color: black;
   color: white;
