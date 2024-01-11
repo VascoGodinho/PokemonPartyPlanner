@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import "../Styles/PokemonDetails.css";
 
 function PokemonDetailsPage({ addToParty }) {
   const { id } = useParams();
@@ -54,7 +55,7 @@ function PokemonDetailsPage({ addToParty }) {
 
   return (
     <div>
-      <h1>{pokemonDetails.name}</h1>
+      <h1 className="pokemonName">{pokemonDetails.name}</h1>
       <div className="pokemon-DetailsPage-img">
         <img
           src={pokemonDetails.sprite}
