@@ -64,7 +64,7 @@ function PokemonDetailsPage({ addToParty }) {
           className="pokemon-imagedetail"
         />
       </div>
-      <div>
+      <div className="typeDetail">
         <strong>Type:</strong>{" "}
         {Array.isArray(pokemonDetails.type)
           ? pokemonDetails.type.join(", ")
