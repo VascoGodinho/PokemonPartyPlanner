@@ -1,4 +1,7 @@
 import logo from "../assets/PartyPlannerLogo.png";
+import YourParty from "../assets/YourParty.png";
+import Create from "../assets/Create.png";
+import AboutUs from "../assets/AboutUs.png";
 import "../Styles/Navbar.css";
 import { Link } from "react-router-dom";
 
@@ -9,14 +12,14 @@ function Navbar() {
         <img src={logo} alt="Pokemon Logo"></img>
       </Link>
       <Link to="/partyPlanner" className="partyplanner">
-        <p>Your Party</p>
+        <img src={YourParty} alt="Your Party"></img>
       </Link>
       <Link to="/createPokemon" className="createPokemon">
-        <p>Create a Pokemon</p>
+        <img src={Create} alt="Create Pokemon"></img>
       </Link>
 
       <Link to="/About" className="aboutUs">
-        <p>About Us</p>
+        <img src={AboutUs} alt="About Us"></img>
       </Link>
     </div>
   );
