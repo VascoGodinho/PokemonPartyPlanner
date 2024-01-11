@@ -33,6 +33,7 @@
 
 .pokemon-name {
   margin-bottom: 50px;
+  text-transform: uppercase;
 }
 
 .pokemon-type {

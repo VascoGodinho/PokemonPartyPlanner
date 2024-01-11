@@ -55,7 +55,7 @@ function PokemonDetailsPage({ addToParty }) {
 
   return (
     <div>
-      <h1 className="pokemonName">{pokemonDetails.name.toUpperCase()}</h1>
+      <h1 className="pokemonName">{pokemonDetails.name}</h1>
       <div className="pokemon-DetailsPage-img">
         <img
           src={pokemonDetails.sprite}
