@@ -1,7 +1,7 @@
 
 Greetings,
 
-Welcome to Pokemon Party Planner, a revolutionary platform meticulously crafted to turn your Pokémon-themed celebrations into unforgettable adventures. As you explore this platform, you'll encounter the entire roster of first-generation Pokémon, and the exciting twist – you have the ability to introduce your own custom Pokémon. Tailor your party by adding, removing, and updating information for a truly personalized experience.
+Welcome to Pokemon Party Planner, a revolutionary platform meticulously crafted to turn your Pokemon-themed celebrations into unforgettable adventures. As you explore this platform, you'll encounter the entire roster of first-generation Pokemon, and the exciting twist – you have the ability to introduce your own custom Pokémon. Tailor your party by adding, removing, and updating information for a truly personalized experience.
 
 Meet the visionary founders, Victor and Vasco, the dynamic duo behind Pokemon Party Planner. Fueled by their passion for Pokémon and a commitment to innovation, they've created a platform that seamlessly merges the essence of Pokémon with the joy of event planning.
 
