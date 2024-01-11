@@ -115,49 +115,62 @@ const CreatePokemonForm = () => {
       <br />
       <label className="form-group">
         Stats:
-        <br />
-        HP:{" "}
-        <input
-          type="number"
-          name="hp"
-          value={pokemonData.stats.hp}
-          onChange={handleStatsChange}
-        />
-        Attack:{" "}
-        <input
-          type="number"
-          name="attack"
-          value={pokemonData.stats.attack}
-          onChange={handleStatsChange}
-        />
-        Defense:{" "}
-        <input
-          type="number"
-          name="defense"
-          value={pokemonData.stats.defense}
-          onChange={handleStatsChange}
-        />
-        Special Attack:{" "}
-        <input
-          type="number"
-          name="special-attack"
-          value={pokemonData.stats["special-attack"]}
-          onChange={handleStatsChange}
-        />
-        Special Defense:{" "}
-        <input
-          type="number"
-          name="special-defense"
-          value={pokemonData.stats["special-defense"]}
-          onChange={handleStatsChange}
-        />
-        Speed:{" "}
-        <input
-          type="number"
-          name="speed"
-          value={pokemonData.stats.speed}
-          onChange={handleStatsChange}
-        />
+        <div>
+          <label>
+            HP:{" "}
+            <input
+              type="number"
+              name="hp"
+              value={pokemonData.stats.hp}
+              onChange={handleStatsChange}
+            />
+          </label>
+          <label>
+            Attack:{" "}
+            <input
+              type="number"
+              name="attack"
+              value={pokemonData.stats.attack}
+              onChange={handleStatsChange}
+            />
+          </label>
+          <label>
+            Defense:{" "}
+            <input
+              type="number"
+              name="defense"
+              value={pokemonData.stats.defense}
+              onChange={handleStatsChange}
+            />
+          </label>
+          <label>
+            Special Attack:{" "}
+            <input
+              type="number"
+              name="special-attack"
+              value={pokemonData.stats["special-attack"]}
+              onChange={handleStatsChange}
+            />
+          </label>
+          <label>
+            Special Defense:{" "}
+            <input
+              type="number"
+              name="special-defense"
+              value={pokemonData.stats["special-defense"]}
+              onChange={handleStatsChange}
+            />
+          </label>
+          <label>
+            Speed:{" "}
+            <input
+              type="number"
+              name="speed"
+              value={pokemonData.stats.speed}
+              onChange={handleStatsChange}
+            />
+          </label>
+        </div>
       </label>
       <br />
       <label className="form-group">
@@ -169,7 +182,7 @@ const CreatePokemonForm = () => {
           onChange={handleInputChange}
         />
       </label>
-      <br />
+
       <button type="submit">Add Pokemon</button>
     </form>
   );
