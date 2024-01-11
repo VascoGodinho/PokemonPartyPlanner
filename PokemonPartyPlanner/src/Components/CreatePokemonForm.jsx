@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../Styles/CreatePokemon.css";
 
 const CreatePokemonForm = () => {
   const [pokemonData, setPokemonData] = useState({
@@ -82,7 +83,7 @@ const CreatePokemonForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
+      <label className="form-group">
         Pokemon Name:
         <input
           type="text"
@@ -92,7 +93,7 @@ const CreatePokemonForm = () => {
         />
       </label>
       <br />
-      <label>
+      <label className="form-group">
         Type:
         <input
           type="text"
@@ -102,7 +103,7 @@ const CreatePokemonForm = () => {
         />
       </label>
       <br />
-      <label>
+      <label className="form-group">
         Moves (comma-separated):
         <input
           type="text"
@@ -112,7 +113,7 @@ const CreatePokemonForm = () => {
         />
       </label>
       <br />
-      <label>
+      <label className="form-group">
         Stats:
         <br />
         HP:{" "}
@@ -159,7 +160,7 @@ const CreatePokemonForm = () => {
         />
       </label>
       <br />
-      <label>
+      <label className="form-group">
         Sprite URL:
         <input
           type="text"
