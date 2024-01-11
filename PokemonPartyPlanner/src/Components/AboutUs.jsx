@@ -8,7 +8,7 @@ import linkedinLogo from "../assets/linkedin.jpg";
 
 function AboutUs() {
   return (
-    <div>
+    <div className="aboutUsDiv">
       <h1 classname="aboutUs">About Us</h1>
       <div className="vasco">
         <h3>Vasco Godinho</h3>
